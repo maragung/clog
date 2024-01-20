@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 interface StatusData {
   node_id: string;
@@ -175,7 +176,13 @@ const Massa: React.FC = () => {
               <tr>
                 <td>Address</td>
                 <td className="mobile-truncate">
-                  {addressesData?.[0].address}
+                  {addressesData && addressesData.length > 0 && (
+                    <Link
+                      href={`https://explorer.massa.net/mainnet/address/${addressesData[0].address}`}
+                    >
+                      {addressesData?.[0].address}
+                    </Link>
+                  )}
                 </td>
               </tr>
               <tr>
