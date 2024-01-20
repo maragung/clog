@@ -9,10 +9,7 @@ interface NodePageProps {
   files: string[];
 }
 
-
-
-const Home: React.FC<NodePageProps> = ({ files }) => {
-  const files = ["massa.tsx"];
+const Home: React.FC<NodePageProps> = ({ files = ["massa.tsx"] }) => {
   return (
     <div className="page-container">
       <h1 className="title">Validator & Stake</h1>
