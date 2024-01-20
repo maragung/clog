@@ -9,7 +9,10 @@ interface NodePageProps {
   files: string[];
 }
 
+
+
 const Home: React.FC<NodePageProps> = ({ files }) => {
+  const files = ["massa.tsx"]
   return (
     <div className="page-container">
       <h1 className="title">Validator & Stake</h1>
@@ -105,18 +108,5 @@ function formatTitle(filename: string): string {
     .replace(/(\b\w)/g, (match) => match.toUpperCase());
 }
 
-export async function getServerSideProps() {
-  const nodeDirectory = path.join(process.cwd(), "src/pages/nodes");
-  console.log(process.cwd());
-  const files = fs
-    .readdirSync(nodeDirectory)
-    .filter((file) => file.endsWith(".tsx"));
-
-  return {
-    props: {
-      files,
-    },
-  };
-}
 
 export default Home;
