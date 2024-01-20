@@ -107,6 +107,7 @@ function formatTitle(filename: string): string {
 
 export async function getServerSideProps() {
   const nodeDirectory = path.join(process.cwd(), "src/pages/nodes");
+  console.log(process.cwd());
   const files = fs
     .readdirSync(nodeDirectory)
     .filter((file) => file.endsWith(".tsx"));
